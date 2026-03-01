@@ -25,6 +25,9 @@ WITH top_paying_jobs AS (
         salary_year_avg DESC
     LIMIT 10)
 
+/*
+Question : What skills are associated with the top paying data science jobs?
+*/
 
 -- Skill needed for the top paying data science jobs
 SELECT 
@@ -39,3 +42,15 @@ INNER JOIN skills_job_dim ON top_paying_jobs.job_id = skills_job_dim.job_id
 INNER JOIN skills_dim ON skills_job_dim.skill_id = skills_dim.skill_id
 ORDER BY
     top_paying_jobs.salary_year_avg DESC;
+
+
+
+/*
+
+Based on the Top 10 Most In-Demand Skills, we can identify the core competencies required for top-tier Data Scientist roles:
+- SQL (7 occurrences): Ranks as the absolute number one most requested skill. This proves that the fundamental ability to extract and manipulate data from relational databases remains crucial.
+- Python (6 occurrences): The de facto programming language for Data Science takes the solid second spot.
+- Java & Spark (5 occurrences each): Indicates that top-level roles frequently require Big Data capabilities (Spark) and robust, object-oriented programming (Java) to deploy machine learning models into production.
+- Tableau (4 occurrences): The most highly demanded data visualization tool, emphasizing the need to communicate insights effectively to business stakeholders.
+
+*/
